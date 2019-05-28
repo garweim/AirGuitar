@@ -1,5 +1,4 @@
-
-    <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
       <a class="navbar-brand" href="#">
       <!-- <img src="../../assets/images/logo.png" /> -->
         <%= image_tag("/images/logo.png") %>
@@ -18,16 +17,31 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Home</a>
+            <!-- <a class="nav-link" href="#">Home</a> -->
+            <%= link_to "Home", root_path, class: "nav-link"  %>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Offer a performance</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Log in</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Sign up</a>
+          <% if user_signed_in? %>
+            <li class="nav-item">
+              <!-- <a class="nav-link" href="#">Offer a performance</a> -->
+              <%= link_to "Offer a performance", new_offering_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <!-- <a class="nav-link" href="#">Log in</a>
+   -->
+              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" %>
+            </li>
+
+          <% else %>
+            <li>
+              <%= link_to "Log in", new_user_session_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <!-- <a class="nav-link" href="#">Sign up</a> -->
+              <%= link_to "Sign up", new_user_registration_path, class: "nav-link"  %>
+            </li>
+          <% end %>
+
+
           </li>
           <li class="nav-item dropdown">
             <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />

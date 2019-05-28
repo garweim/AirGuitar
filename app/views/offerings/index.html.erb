@@ -1,11 +1,13 @@
 <h1> list of offerings </h1>
 <ul>
 <% @offerings.each do |offering| %>
-  <li> <%= offering.name  %> </li>
+  <li> <%= link_to offering.name, offering_path(offering)  %> </li>
   <li> <%= offering.price_hour  %> </li>
   <li> <%= offering.genre %> </li>
   <li> <%= offering.description  %> </li>
   <br>
   <% end %>
 </ul>
+
+<%= link_to "New offering page", new_offering_path %>
 
