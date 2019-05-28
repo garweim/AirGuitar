@@ -1,15 +1,14 @@
 
-    <div class="col-xs-12 col-sm-10 col-sm-offset-1">
-      <h1>All offerings</h1>
-      <ul class="list-group">
-        <% @offerings.each do |offering| %>
-          <li class="list-group-item">
-            <%= link_to offering.name, offering_path(offering) %>
-          </li>
-        <% end %>
-      </ul>
-      <%= link_to "Give your artist service", new_offering_path, class: 'btn btn-primary' %>
-    </div>
-
-
 <!-- <p>Find me in app/views/offerings/index.html.erb</p> -->
+=======
+<h1> list of offerings </h1>
+<ul>
+<% @offerings.each do |offering| %>
+  <li> <%= offering.name  %> </li>
+  <li> <%= offering.price_hour  %> </li>
+  <li> <%= offering.genre %> </li>
+  <li> <%= offering.description  %> </li>
+  <br>
+  <% end %>
+</ul>
+
