@@ -1,6 +1,7 @@
 .category-card {
-  background-color: red;
-  width: 281px;
+  background-size: cover;
+  background-position: center;
+  width: 250px;
   height: 300px;
   border-radius: 1px;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
@@ -11,4 +12,16 @@
   color: white;
   font-weight: bolder;
   text-shadow: 0 0 10px rgba(0,0,0,0.7);
+  text-align: center;
 }
+
+.container-card {
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 16px;
+  align-items: center;
+  justify-content: space-around;
+}
+
+
