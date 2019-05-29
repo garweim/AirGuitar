@@ -10,7 +10,6 @@
 # offering= Offering.new(offerings_attributes)
 
 
-
 Offering.create!(
   name: "Ntm",
   price_hour: 200,
