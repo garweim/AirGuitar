@@ -1,5 +1,5 @@
 class OfferingsController < ApplicationController
-  before_action :find_id, only: [ :create, :show]
+  before_action :find_id, only: [ :show]
   def index
     @offerings = Offering.all
   end
@@ -8,7 +8,6 @@ class OfferingsController < ApplicationController
 
 
     @offering = Offering.new
-
   end
 
   # def edit
@@ -34,8 +33,7 @@ class OfferingsController < ApplicationController
   private
 
   def offerings_params
-
-    params.require(:offering).permit(:name, :price_hour, :genre)
+    params.require(:offering).permit(:name, :price_hour, :genre, :photo)
   end
 
   def find_id
