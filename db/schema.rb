@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 2019_05_27_144810) do
     t.integer "price_hour"
     t.string "genre"
     t.text "description"
-    t.string "picture"
+    t.string "picture", default: ""
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

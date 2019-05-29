@@ -4,7 +4,7 @@
 
 
 
-<div class="banner" style="background-image:linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.pixabay.com/photo/2018/05/10/11/34/concert-3387324_960_720.jpg);">
+<div class="banner" <% unless @offering.picture.blank? %> style="background-image:linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path(@offering.picture) %>')" <% end %>>
     <div class="container">
     </div>
   </div>
@@ -21,12 +21,36 @@
       <p><strong>About</strong><br><%= @offering.description %></p>
     </div>
   </div>
+   <div class="description">
+      <p><strong>Price per hour (€)</strong><br><%= @offering.price_hour %>€</p>
+    </div>
   <div class="hire-artist">
     <h4></h4>
     <div class="form"></div>
   </div>
   <%= link_to "delete", offering_path(@offering), method: :delete, data: {confirm: 'are you sure?'} %>
+  <%= link_to "edit offering",  edit_offering_path(@offering) %>
 </div>
+
+
+<h1>New Booking</h1>
+
+
+<%= simple_form_for(@booking) do |f| %>
+
+  <div class="form-inputs">
+    <%= f.hidden_field :offering, value: @offering.id %>
+    <%= f.input :starting_date, as: :datetime, html5: true %>
+    <%= f.input :end_date, as: :datetime, html5: true %>
+  </div>
+
+
+  <div class="form-actions">
+     <%= f.submit "add an offering", class: "btn btn-primary" %>
+  </div>
+<% end %>
+
+
 
 
 
