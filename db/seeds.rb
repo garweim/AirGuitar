@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-<<<<<<< HEAD
+
 
 # offering= Offering.new(offerings_attributes)
 
@@ -54,7 +54,7 @@ Offering.create!(
 
 
 
-=======
+
 puts "destroying offerings"
 Offering.destroy_all
 puts 'Creating offerings...'
@@ -80,4 +80,4 @@ offerings_attributes = [
 #user = User.create!(first_name: "aida", last_name: "nounourse", email: "aida@gmail.com", encrypted_password: "123456" )
 offering = Offering.create!(offerings_attributes)
 puts "done"
->>>>>>> a88d4805a27c7892ce31f4fc4e03dc2f1bb8c429
+
