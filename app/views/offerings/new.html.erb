@@ -1,3 +1,7 @@
+
+<h1>New offering</h1>
+
+
 <%= simple_form_for(@offering) do |f| %>
 
   <div class="form-inputs">
@@ -6,7 +10,9 @@
     <%= f.input :genre %>
     <%= f.input :description %>
     <%= f.input :picture %>
+
     <%= f.input :picture_cache, as: :hidden %>
+
 
   </div>
 
