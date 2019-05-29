@@ -1,34 +1,17 @@
-<h1>New offering</h1>
-
-<%= form_for(@offering) do |f| %>
-<%= f.label :name %>
-<%= f.text_field :name %>
-
-<%= f.label :genre %>
-<%= f.text_field :genre %>
-
-<%= f.label :description %>
-<%= f.text_field :description %>
-
-<%= f.label :picture %>
-<%= f.text_field :picture %>
-<div class= "submit">
-<%= f.submit %>
-</div>
-<%end %>
-
 <%= simple_form_for(@offering) do |f| %>
 
   <div class="form-inputs">
     <%= f.input :name %>
-    <%= f.input :price_hour %>
+    <%= f.input :price_hour, label: 'Price per prformance (only)'%>
     <%= f.input :genre %>
     <%= f.input :description %>
-    <%= f.input :photo %>
-    <%= f.input :photo_cache, as: :hidden %>
+    <%= f.input :picture %>
+    <%= f.input :picture_cache, as: :hidden %>
+
   </div>
 
   <div class="form-actions">
      <%= f.submit "add an offering", class: "btn btn-primary" %>
   </div>
 <% end %>
+
