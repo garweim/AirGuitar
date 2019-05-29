@@ -1,16 +1,18 @@
 .large-card {
-  height: 300px;
-  width: 394px;
+  // height: 300px;
+  width: 100%;
   background-color: white;
-  margin-top: 30px;
+  margin-top: 0px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
-.large-card img {
+.img-large-card {
   width: 100%;
-  height: 220px;
   position: top;
   object-fit: cover;
+  img{
+    width: 100%;
+  }
 }
 
 .card-trip-price h3 {
@@ -23,7 +25,7 @@
   justify-content: space-between;
   align-items: flex-end;
   position: bottom;
-  padding: 34px 20px 0 20px;
+  padding: 10px;
   position: relative;
 }
 
@@ -40,4 +42,14 @@
 .card-trip-price h4 {
   margin: 0px;
   padding: 0px;
+}
+
+.container-large-card {
+  margin: 0 auto;
+  margin-bottom: 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+  align-items: center;
+  justify-content: space-around;
 }
