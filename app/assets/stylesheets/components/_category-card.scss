@@ -1,8 +1,8 @@
 .category-card {
   background-size: cover;
   background-position: center;
-  width: 250px;
-  height: 300px;
+  width: 100%;
+  height: 17rem;
   border-radius: 1px;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
   display: flex;
@@ -26,3 +26,12 @@
 }
 
 
+.container-large-card {
+  margin: 0 auto;
+  margin-bottom: 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+  align-items: center;
+  justify-content: space-around;
+}
