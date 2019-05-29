@@ -5,4 +5,4 @@
 <%= @offering.genre %>
 <%= @offering.description %>
 
-
+<%= link_to "delete", offering_path(@offering), method: :delete, data: {confirm: 'are you sure?'} %>
