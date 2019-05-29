@@ -1,4 +1,13 @@
-<h1> list of offerings </h1>
+<!-- <p>Find me in app/views/offerings/index.html.erb</p> -->
+<!-- <h1> list of offerings </h1> -->
+  <div class="banner" style="background-image:linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.pixabay.com/photo/2018/05/10/11/34/concert-3387324_960_720.jpg);">
+    <div class="container">
+      <h2>Music is my life </h2>
+      <h2>and my life is music!</h2>
+      <p>Hire the best bands in your city</p>
+    </div>
+  </div>
+
 <ul>
 <% @offerings.each do |offering| %>
   <li> <%= link_to offering.name, offering_path(offering)  %> </li>
@@ -8,6 +17,50 @@
   <br>
   <% end %>
 </ul>
+<div class="container-landing">
+  <h3>Browse by category</h3>
+  <div class="container-card">
+    <div class="category-card" style="background-image: url(http://kitt.lewagon.com/placeholder/cities/rio)">
+      <div class="card-content">
+        <p>Rock</p>
+        <p>200$/avg</p>
+      </div>
+    </div>
+    <div class="category-card" style="background-image: url(http://kitt.lewagon.com/placeholder/cities/berlin)">
+      <div class="card-content">
+        <p>Rap</p>
+        <p>184$/avg</p>
+      </div>
+    </div>
+    <div class="category-card" style="background-image: url(http://kitt.lewagon.com/placeholder/cities/shanghai)">
+      <div class="card-content">
+        <p>World music</p>
+        <p>214$/avg</p>
+      </div>
+    </div>
+    <div class="category-card" style="background-image: url(http://kitt.lewagon.com/placeholder/cities/barcelona)">
+      <div class="card-content">
+        <p>Dance</p>
+        <p>87$/avg</p>
+      </div>
+    </div>
+  </div>
+  <div class="container-large-card">
+    <div class="large-card">
+      <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" alt="Paysage">
+      <div class="card-trip-content">
+        <div class="card-trip-description">
+        <h4>Discover Asia</h4>
+        <p>Music category</p>
+        </div>
+        <div class="card-trip-price">
+         <h4>1450€</h4>
+        </div>
+        <img class="avatar-emily" src="https://images.unsplash.com/photo-1517230878791-4d28214057c2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" alt="Emily">
+      </div>
+    </div>
+  </div>
+</div>
 
 <%= link_to "New offering page", new_offering_path %>
 

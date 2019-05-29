@@ -5,6 +5,8 @@ class OfferingsController < ApplicationController
   end
 
   def new
+
+
     @offering = Offering.new
   end
 
@@ -15,11 +17,13 @@ class OfferingsController < ApplicationController
   # end
 
   def create
+
     @offering = Offering.new(offerings_params)
     if @offering.save
       redirect_to offering_path(@offering)
     else
       render :new
+
     end
   end
 
@@ -36,3 +40,4 @@ class OfferingsController < ApplicationController
     @offering = Offering.find(params[:id])
   end
 end
+

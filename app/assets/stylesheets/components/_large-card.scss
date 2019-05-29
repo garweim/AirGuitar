@@ -1,0 +1,43 @@
+.large-card {
+  height: 300px;
+  width: 394px;
+  background-color: white;
+  margin-top: 30px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.large-card img {
+  width: 100%;
+  height: 220px;
+  position: top;
+  object-fit: cover;
+}
+
+.card-trip-price h3 {
+  margin: 0px;
+  padding: 0px;
+}
+
+.card-trip-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: bottom;
+  padding: 34px 20px 0 20px;
+  position: relative;
+}
+
+.card-trip-description h4 {
+  margin: 0px;
+  padding: 0px;
+}
+
+.card-trip-description p {
+  margin: 3px;
+  padding: 0px;
+}
+
+.card-trip-price h4 {
+  margin: 0px;
+  padding: 0px;
+}
