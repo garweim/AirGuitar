@@ -8,15 +8,6 @@
     </div>
   </div>
 
-<ul>
-<% @offerings.each do |offering| %>
-  <li> <%= link_to offering.name, offering_path(offering)  %> </li>
-  <li> <%= offering.price_hour  %> </li>
-  <li> <%= offering.genre %> </li>
-  <li> <%= offering.description  %> </li>
-  <br>
-  <% end %>
-</ul>
 <div class="container-landing">
   <h3>Browse by category</h3>
   <div class="container-card">
