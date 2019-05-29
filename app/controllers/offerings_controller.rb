@@ -43,11 +43,14 @@ class OfferingsController < ApplicationController
   private
 
   def offerings_params
+<<<<<<< HEAD
     params.require(:offering).permit(:name, :price_hour, :genre, :picture, :description)
+=======
+    params.require(:offering).permit(:name, :price_hour, :genre, :picture)
+>>>>>>> master
   end
 
   def find_id
     @offering = Offering.find(params[:id])
   end
 end
-

@@ -4,5 +4,6 @@
 <%= @offering.price_hour %>
 <%= @offering.genre %>
 <%= @offering.description %>
+<%= cl_image_tag @offering.picture, height: 300, width: 400, crop: :fill %>
 
 <%= link_to "delete", offering_path(@offering), method: :delete, data: {confirm: 'are you sure?'} %>
