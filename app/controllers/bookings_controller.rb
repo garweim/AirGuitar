@@ -10,18 +10,26 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @booking = Booking.new(
-      offering: Offering.find(params[:booking][:offering].to_i),
-      starting_date: params[:booking][:starting_date],
-      end_date: params[:booking][:end_date]
-      )
+    @offering = Offering.find(params[:offering_id])
+    @booking = Booking.new(bookings_params)
+    @booking.offering = @offering
     @booking.user = current_user
-    if @booking.save!
+    if @booking.save
       redirect_to bookings_path
+    else
+      redirect_to offering_path(@offering)
     end
   end
 
   def destroy
   end
 
+  private
+
+  def bookings_params
+    params.require(:booking).permit(:starting_date, :end_date, :offering_id)
+  end
 end
+# offering: Offering.find(params[:booking][:offering].to_i),
+#       starting_date: params[:booking][:starting_date],
+#       end_date: params[:booking][:end_date]
