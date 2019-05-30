@@ -23,6 +23,14 @@
           <% if user_signed_in? %>
             <li class="nav-item">
               <!-- <a class="nav-link" href="#">Offer a performance</a> -->
+              <%= link_to "My bookings", bookings_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <!-- <a class="nav-link" href="#">Offer a performance</a> -->
+              <%= link_to "My gigs", bookings_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <!-- <a class="nav-link" href="#">Offer a performance</a> -->
               <%= link_to "Offer a performance", new_offering_path, class: "nav-link" %>
             </li>
             <li class="nav-item">

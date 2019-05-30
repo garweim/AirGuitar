@@ -11,12 +11,7 @@
 <div class="container-landing">
   <h3>Browse by category</h3>
   <div class="container-card">
-    <div class="category-card" style="background-image: url(https://images.unsplash.com/photo-1518553343323-b5547b620030?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80)">
-      <div class="card-content">
-        <p>Rock</p>
-        <p>200$/avg</p>
-      </div>
-    </div>
+
     <div class="category-card" style="background-image: url(https://images.unsplash.com/photo-1505964135045-cdada2f6bf43?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80)">
       <div class="card-content">
         <p>Rap</p>
@@ -35,10 +30,39 @@
         <p>87$/avg</p>
       </div>
     </div>
+    <div class="category-card" style="background-image: url(https://images.unsplash.com/photo-1541296481353-b1eb3a4e0309?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80)">
+      <div class="card-content">
+        <p>Rock</p>
+        <p>320$/avg</p>
+      </div>
+    </div>
   </div>
+
+
   <h3>Top artists in your region</h3>
   <div class="container-large-card">
+
+    <% @offerings.each do |offering| %>
+
     <div class="large-card">
+      <div class="img-large-card">
+      <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" alt="Paysage">
+      </div>
+      <div class="card-trip-content">
+        <div class="card-trip-description">
+        <h4><%= link_to offering.name, offering_path(offering) %></h4>
+        <p><%= offering.genre %></p>
+        </div>
+        <div class="card-trip-price">
+         <h4><%= offering.price_hour %></h4>
+        </div>
+
+      </div>
+    </div>
+
+    <% end %>
+
+    <!-- <div class="large-card">
       <div class="img-large-card">
       <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" alt="Paysage">
       </div>
@@ -112,22 +136,7 @@
         </div>
         <img class="avatar-emily" src="https://images.unsplash.com/photo-1517230878791-4d28214057c2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" alt="Emily">
       </div>
-    </div>
-    <div class="large-card">
-      <div class="img-large-card">
-      <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" alt="Paysage">
-      </div>
-      <div class="card-trip-content">
-        <div class="card-trip-description">
-        <h4>NTM</h4>
-        <p>Rap/Hip-Hop</p>
-        </div>
-        <div class="card-trip-price">
-         <h4>1450€</h4>
-        </div>
-        <img class="avatar-emily" src="https://images.unsplash.com/photo-1517230878791-4d28214057c2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" alt="Emily">
-      </div>
-    </div>
+    </div> -->
   </div>
 </div>
 <%= if policy(Offering).new? %>
