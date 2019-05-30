@@ -1,8 +1,8 @@
 class OfferingPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      # scope.all
-      scope.where(user: user)
+      scope.all
+      # scope.where(user: user)
     end
   end
   def new?
@@ -14,11 +14,15 @@ class OfferingPolicy < ApplicationPolicy
   end
 
   def update?
-    user_is_owner
+    user_is_owner?
   end
 
   def destroy?
-    user_is_owner
+    user_is_owner?
+  end
+
+  def show?
+    return true
   end
 
   private

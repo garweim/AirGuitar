@@ -17,7 +17,7 @@ class BookingsController < ApplicationController
       end_date: params[:booking][:end_date]
       )
     @booking.user = current_user
-    if @booking.save!
+      if @booking.save!
       redirect_to bookings_path
     end
   end
