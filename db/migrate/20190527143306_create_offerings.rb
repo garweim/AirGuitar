@@ -5,7 +5,7 @@ class CreateOfferings < ActiveRecord::Migration[5.2]
       t.integer :price_hour
       t.string :genre
       t.text :description
-      t.string :picture
+      t.string :picture, default: ""
       t.references :user, foreign_key: true
 
       t.timestamps

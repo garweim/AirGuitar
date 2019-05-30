@@ -5,12 +5,11 @@ class BookingsController < ApplicationController
   end
 
   def new
-
     @booking = Booking.new
   end
 
-  # def edit
-  # end
+  def edit
+  end
 
   def show
   end
@@ -19,15 +18,12 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.offering = @offering
     @booking.user = current_user
-    if @booking.save!
-      redirect_to offering_bookings_path(@offering)
-    else
-      render :new
-    end
+      if @booking.save!
+        redirect_to offering_bookings_path(@offering)
+      else
+        render :new
+      end
   end
-
-  # def destroy
-  # end
 
   private
 

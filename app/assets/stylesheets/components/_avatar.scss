@@ -20,13 +20,15 @@
 }
 
 .avatar-emily {
-  width: 30px;
-  height: 30px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
-  // border-width: 0,5px;
-  // border: solid white;
+  border-width: 1px;
+  border: solid white;
   object-fit: cover;
   position: absolute;
-  top: -14px;
+  top: -34px;
   right: 26px;
 }
+
+

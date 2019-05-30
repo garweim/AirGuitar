@@ -27,6 +27,14 @@
           <% if user_signed_in? %>
             <li class="nav-item">
               <!-- <a class="nav-link" href="#">Offer a performance</a> -->
+              <%= link_to "My bookings", bookings_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <!-- <a class="nav-link" href="#">Offer a performance</a> -->
+              <%= link_to "My gigs", bookings_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <!-- <a class="nav-link" href="#">Offer a performance</a> -->
               <%= link_to "Offer a performance", new_offering_path, class: "nav-link" %>
             </li>
             <li class="nav-item">
@@ -47,6 +55,7 @@
           </li>
           <li class="nav-item dropdown">
             <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
+            <%= current_user.email %>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="https://raw.githubusercontent.com">Hello</a>
               <a class="dropdown-item" href="#">Goodbye</a>

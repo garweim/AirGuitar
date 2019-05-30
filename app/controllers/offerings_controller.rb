@@ -1,16 +1,20 @@
 class OfferingsController < ApplicationController
-  before_action :find_id, only: [:show]
+  before_action :find_id, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: :index
   def index
-    @offerings = Offering.all
+    # @offerings = Offering.all
+    @offerings = policy_scope(Offering)
   end
 
   def new
     @offering = Offering.new
+    authorize @offering
   end
 
   def create
     @offering = Offering.new(offerings_params)
     @offering.user = current_user
+    authorize @offering
     if @offering.save!
       redirect_to offering_path(@offering)
     else
@@ -19,20 +23,21 @@ class OfferingsController < ApplicationController
   end
 
   def show
+    @booking = Booking.new
 
+     # @offering = Offering.find(params[:id])
   end
 
-  # def edit
-  #   @offering = Offering.find(params[:id])
-  # end
+  def edit
+  end
 
-  # def update
-  #   if @offering.update(offering_params)
-  #     redirect_to edit_offering_path(@offering)
-  #   else
-  #     render :edit
-  #   end
-  # end
+  def update
+    if @offering.update(offerings_params)
+      redirect_to offering_path(@offering)
+    else
+      render :edit
+    end
+  end
 
   def destroy
     @offering = Offering.find(params[:id])
@@ -43,12 +48,12 @@ class OfferingsController < ApplicationController
   private
 
   def offerings_params
-
     params.require(:offering).permit(:name, :price_hour, :genre, :picture, :description)
 
   end
 
   def find_id
     @offering = Offering.find(params[:id])
+    authorize @offering
   end
 end

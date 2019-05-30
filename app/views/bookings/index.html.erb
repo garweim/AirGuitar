@@ -1,5 +1,15 @@
+
 <h1>All my bookings</h1>
 
 <% @bookings.each do |booking| %>
 <%= booking.starting_date %>
+<% booking.end_date %>
+ <%= link_to "Edit", edit_offering_path %>
 <% end %>
+
+
+
+
+
+
+
