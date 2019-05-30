@@ -28,34 +28,21 @@
     <h4></h4>
     <div class="form"></div>
   </div>
-  <%= if policy(offering).destroy? %>
-  <%= link_to "delete", offering_path(@offering), method: :delete, data: {confirm: 'are you sure?'} %>
-
-  <%= end %>
+  <% if policy(@offering).destroy? %>
+  <%= link_to "delete", offering_path(@offering), method: :delete, data: {confirm: 'are you sure?'} %> <%end  %>
 
   <%= link_to "edit offering",  edit_offering_path(@offering) %>
-
 </div>
-
 
 <h1>New Booking</h1>
 
-
 <%= simple_form_for(@booking) do |f| %>
-
   <div class="form-inputs">
     <%= f.hidden_field :offering, value: @offering.id %>
     <%= f.input :starting_date, as: :datetime, html5: true %>
     <%= f.input :end_date, as: :datetime, html5: true %>
   </div>
-
-
   <div class="form-actions">
      <%= f.submit "add an offering", class: "btn btn-primary" %>
   </div>
 <% end %>
-
-
-
-
-
