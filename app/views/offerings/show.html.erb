@@ -25,8 +25,9 @@
     <h4></h4>
     <div class="form"></div>
   </div>
-  <%= link_to "delete", offering_path(@offering), method: :delete, data: {confirm: 'are you sure?'} %>
+  <%= link_to "delete", offering_path(@offering), method: :delete, data: {confirm: 'are you sure?'}
+  %>
+  <%= link_to "Book now", new_offering_booking_path(@offering) %>
 </div>
-
 
 
