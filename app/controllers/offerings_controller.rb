@@ -3,7 +3,12 @@ class OfferingsController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
   def index
     # @offerings = Offering.all
-    @offerings = policy_scope(Offering)
+    if params[:query].present?
+      @offerings = Offering.where("@@ ?", "%#{params[:query]}")
+    else
+      @offerings = policy_scope(Offering)
+      @offering = Offering.all
+    end
   end
 
   def new
