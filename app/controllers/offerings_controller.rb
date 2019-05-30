@@ -1,8 +1,8 @@
 class OfferingsController < ApplicationController
   before_action :find_id, only: [:show, :edit, :update]
   def index
-    @offerings = Offering.all
-    @offering = policy_scope(offering)
+    # @offerings = Offering.all
+    @offerings = policy_scope(Offering)
   end
 
   def new
