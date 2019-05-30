@@ -11,6 +11,7 @@ class BookingsController < ApplicationController
   end
 
   def create
+    authorize @booking
     @offering = Offering.find(params[:offering_id])
     @booking = Booking.new(bookings_params)
     @booking.offering = @offering
