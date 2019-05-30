@@ -20,17 +20,19 @@
             <!-- <a class="nav-link" href="#">Home</a> -->
             <%= link_to "Home", root_path, class: "nav-link"  %>
           </li>
+          <li class="nav-item active">
+            <!-- <a class="nav-link" href="#">Home</a> -->
+            <%= link_to "My bookings", offering_bookings_path(:offering_id), class: "nav-link"  %>
+          </li>
           <% if user_signed_in? %>
             <li class="nav-item">
               <!-- <a class="nav-link" href="#">Offer a performance</a> -->
               <%= link_to "Offer a performance", new_offering_path, class: "nav-link" %>
             </li>
             <li class="nav-item">
-              <!-- <a class="nav-link" href="#">Log in</a>
-   -->
+              <!-- <a class="nav-link" href="#">Log in</a> -->
               <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" %>
             </li>
-
           <% else %>
             <li>
               <%= link_to "Log in", new_user_session_path, class: "nav-link" %>
