@@ -25,7 +25,9 @@
     <h4></h4>
     <div class="form"></div>
   </div>
+  <%= if policy(offering).destroy? %>
   <%= link_to "delete", offering_path(@offering), method: :delete, data: {confirm: 'are you sure?'} %>
+  <%= end %>
 </div>
 
 
