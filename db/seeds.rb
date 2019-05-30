@@ -8,6 +8,8 @@
 
 
 # offering= Offering.new(offerings_attributes)
+User.destroy_all
+User.create!(email: 'geoffroy@gmail.com', first_name: 'Geoffroy', last_name: 'vdp', password: '123456')
 
 
 Offering.create!(
@@ -52,31 +54,5 @@ Offering.create!(
 )
 
 
-
-
-puts "destroying offerings"
-Offering.destroy_all
-puts 'Creating offerings...'
-offerings_attributes = [
-  {
-    name:         'Mojito',
-    price_hour: 1000,
-    genre: 'alternative rock',
-    description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-    user_id: '1'
-  },
-
-  {
-    name:         'Old Fashioned',
-    price_hour: 850,
-    genre: 'rap',
-    description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-    user_id: '2'
-  }
-
-]
-
-#user = User.create!(first_name: "aida", last_name: "nounourse", email: "aida@gmail.com", encrypted_password: "123456" )
-offering = Offering.create!(offerings_attributes)
 puts "done"
 
