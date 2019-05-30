@@ -29,9 +29,16 @@
   position: relative;
 }
 
-.card-trip-description h4 {
+.card-trip-description h4 a {
   margin: 0px;
   padding: 0px;
+  text-decoration: none;
+  color: #7B7676;
+}
+
+.card-trip-description h4 a:hover {
+  text-decoration: none;
+  color: black;
 }
 
 .card-trip-description p {
