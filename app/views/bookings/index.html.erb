@@ -6,7 +6,12 @@
   <%= booking.starting_date %>
   <%= booking.end_date %>
   <%= booking.offering.name %>
-
+  <%  booking.offering.price_hour.to_i  %>
+  <% elapsed_seconds = ((booking.end_date - booking.starting_date)).to_f %>
+  <br>
+  <% price = elapsed_seconds * (booking.offering.price_hour.to_f).to_f / 3600 %>
+  <%= price.round(2) %>
+  <br>
 <% end %>
 
 <%# if current_user == booking.user %>

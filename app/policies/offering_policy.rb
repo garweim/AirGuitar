@@ -20,7 +20,6 @@ class OfferingPolicy < ApplicationPolicy
 
   def destroy?
     user_is_owner?
-
   end
 
   def show?

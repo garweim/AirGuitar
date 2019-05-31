@@ -1,7 +1,7 @@
 class BookingsController < ApplicationController
   def index
     # @offering = Offering.find(params[:offering_id])
-    @bookings = Booking.where(user_id: current_user.id)
+    @bookings = policy_scope(Booking).where(user_id: current_user.id)
   end
 
   def new
