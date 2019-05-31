@@ -13,6 +13,16 @@
   font-weight: bolder;
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
   text-align: center;
+  background-blend-mode: saturation;
+  transition: .3s ease;
+  // filter: brightness(50%);
+  // -webkit-filter: brightness(50%);
+}
+
+.category-card:hover {
+ // filter: brightness(100%);
+ // -webkit-filter: brightness(100%);
+  background-blend-mode: darken;
 }
 
 .container-card {

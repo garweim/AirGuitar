@@ -1,23 +1,27 @@
+<div class='container-offer-performance'>
+  <div class="container">
 
-<h1>Edit offering</h1>
-
-
-<%= simple_form_for(@offering) do |f| %>
-
-  <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :price_hour, label: 'Price per performance (only)'%>
-    <%= f.input :genre %>
-    <%= f.input :description %>
-    <%= f.input :picture %>
-
-    <%= f.input :picture_cache, as: :hidden %>
+    <h3 id="sign-upp">Edit My Performance</h3>
 
 
+    <%= simple_form_for(@offering) do |f| %>
+      <div class="form-card">
+        <div class="form-inputs">
+          <%= f.input :name %>
+          <%= f.input :price_hour, label: 'Price per performance (only)'%>
+          <%= f.input :genre %>
+          <%= f.input :description %>
+          <%= f.input :picture %>
+
+          <%= f.input :picture_cache, as: :hidden %>
+
+
+        </div>
+
+        <div class="form-actions">
+           <%= f.submit "Edit", class: "btn-red" %>
+        </div>
+      </div>
+    <% end %>
   </div>
-
-  <div class="form-actions">
-     <%= f.submit "add an offering", class: "btn btn-primary" %>
-  </div>
-<% end %>
-
+</div>
