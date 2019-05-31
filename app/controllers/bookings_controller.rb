@@ -20,6 +20,7 @@ class BookingsController < ApplicationController
   def create
     @offering = Offering.find(params[:offering_id])
     @booking = Booking.new(bookings_params)
+    authorize @booking
     @booking.offering = @offering
     @booking.user = current_user
     if @booking.save!
@@ -33,6 +34,7 @@ class BookingsController < ApplicationController
   end
 
   def gigs
+    authorize @booking
     @offerings = Offering.where(user_id: current_user)
     @bookings = Booking.joins(:offering).where(user_id: current_user.id)
 

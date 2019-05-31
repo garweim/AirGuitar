@@ -36,11 +36,15 @@
             </li>
             <li class="nav-item">
               <!-- <a class="nav-link" href="#">Offer a performance</a> -->
-              <%= link_to "My gigs", gigs_bookings_path, class: "nav-link" %>
+              <% if policy(Booking).gigs? %>
+                <%= link_to "My gigs", gigs_bookings_path, class: "nav-link" %>
+              <% end %>
             </li>
             <li class="nav-item">
               <!-- <a class="nav-link" href="#">Offer a performance</a> -->
-              <%= link_to "Offer a performance", new_offering_path, class: "nav-link" %>
+              <% if policy(Booking).create? %>
+                <%= link_to "Offer a performance", new_offering_path, class: "nav-link" %>
+              <% end %>
             </li>
             <li class="nav-item">
               <!-- <a class="nav-link" href="#">Log in</a>
