@@ -10,6 +10,15 @@
 # offering= Offering.new(offerings_attributes)
 User.destroy_all
 User.create!(email: 'geoffroy@gmail.com', first_name: 'Geoffroy', last_name: 'vdp', password: '123456')
+User.create!(email: 'ken@gmail.com', first_name: 'ken', last_name: 'sony', password: '123456')
+User.create!(email: 'barbie@gmail.com', first_name: 'barbie', last_name: 'bebelle', password: '123456')
+User.create!(email: 'didier@gmail.com', first_name: 'didier', last_name: 'de wasseige', password: '123456')
+User.create!(email: 'aida@gmail.com', first_name: 'aida', last_name: 'bennouna', password: '123456')
+User.create!(email: 'gary@gmail.com', first_name: 'gary', last_name: 'weimberg', password: '123456')
+
+
+
+
 
 
 Offering.create!(

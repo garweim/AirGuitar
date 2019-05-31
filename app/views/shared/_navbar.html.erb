@@ -7,12 +7,21 @@
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <form novalidate="novalidate" class="simple_form search" action="/" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+<!--       <form novalidate="novalidate" class="simple_form search" action="/" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
         <div class="search-form-control form-group">
           <input class="form-control string required" type="text" name="search[query]" id="search_query" />
           <button name="button" type="submit" class="btn btn-flat" id="btn-search">Search</button>
         </div>
-      </form>
+      </form> -->
+
+      <%= form_tag(offerings_path, {class: "search", method: :get})do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control string required",
+          placeholder: "Find a movie"
+        %>
+        <%= submit_tag 'Search', class: "btn btn-flat" %>
+      <% end %>
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
@@ -27,7 +36,7 @@
             </li>
             <li class="nav-item">
               <!-- <a class="nav-link" href="#">Offer a performance</a> -->
-              <%= link_to "My gigs", bookings_path, class: "nav-link" %>
+              <%= link_to "My gigs", gigs_bookings_path, class: "nav-link" %>
             </li>
             <li class="nav-item">
               <!-- <a class="nav-link" href="#">Offer a performance</a> -->
@@ -56,10 +65,6 @@
               <%= link_to "Sign up", new_user_registration_path, class: "nav-link"  %>
             </li>
           <% end %>
-
-
-          </li>
-
         </ul>
       </div>
     </div>

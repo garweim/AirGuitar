@@ -3,7 +3,17 @@ class OfferingsController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
   def index
     # @offerings = Offering.all
-    @offerings = policy_scope(Offering)
+    if params[:query].present?
+      # sql_query = " \
+      #   offerings.name @@ :query \
+      #   OR offerings.genre @@ :query \
+      # "
+      # @offerings = Offering.where(sql_query, query: "%#{params[:query]}%")
+      @offerings = policy_scope(Offering.search_by_genre_and_name("%#{params[:query]}%"))
+    else
+      @offerings = policy_scope(Offering)
+      @offering = Offering.all
+    end
   end
 
   def new
@@ -24,7 +34,6 @@ class OfferingsController < ApplicationController
 
   def show
     @booking = Booking.new
-
      # @offering = Offering.find(params[:id])
   end
 
@@ -32,6 +41,7 @@ class OfferingsController < ApplicationController
   end
 
   def update
+    authorize @offering
     if @offering.update(offerings_params)
       redirect_to offering_path(@offering)
     else
@@ -40,6 +50,7 @@ class OfferingsController < ApplicationController
   end
 
   def destroy
+    authorize @offering
     @offering = Offering.find(params[:id])
     @offering.destroy
     redirect_to root_path
@@ -51,6 +62,10 @@ class OfferingsController < ApplicationController
     params.require(:offering).permit(:name, :price_hour, :genre, :picture, :description)
 
   end
+
+  # def authorize_offering
+  #   authorize @offering
+  # end
 
   def find_id
     @offering = Offering.find(params[:id])
