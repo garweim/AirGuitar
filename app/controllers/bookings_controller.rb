@@ -2,19 +2,10 @@ class BookingsController < ApplicationController
   def index
     # @offering = Offering.find(params[:offering_id])
     @bookings = Booking.where(user_id: current_user.id)
-
-
-    # if @bookings.is_nil?
-
-    # else
-    #   @bookings
-    # end
   end
 
-  def edit
-  end
-
-  def show
+  def new
+    @booking = Booking.new
   end
 
   def create
@@ -22,6 +13,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(bookings_params)
     @booking.offering = @offering
     @booking.user = current_user
+    authorize @booking
     if @booking.save!
       redirect_to bookings_path
     else
@@ -29,13 +21,19 @@ class BookingsController < ApplicationController
     end
   end
 
+  def show
+  end
+
+  def edit
+  end
+
   def destroy
   end
 
   def gigs
     @offerings = Offering.where(user_id: current_user)
-    @bookings = Booking.joins(:offering).where(user_id: current_user.id)
-
+    # @bookings = Booking.joins(:offering).where(user_id: current_user.id)
+    authorize @offerings
   end
 
   private

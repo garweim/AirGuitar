@@ -5,12 +5,9 @@ class OfferingPolicy < ApplicationPolicy
       # scope.where(user: user)
     end
   end
-  def new?
-    return true
-  end
 
   def create?
-    return true
+    true
   end
 
   def show?
@@ -27,8 +24,11 @@ class OfferingPolicy < ApplicationPolicy
   end
 
   def show?
-    return true
+    true
+  end
 
+  def gigs?
+    true
   end
 
   private
