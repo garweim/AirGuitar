@@ -20,8 +20,8 @@
                 <% booking.offering.price_hour.to_i  %>
                 <% elapsed_seconds = ((booking.end_date - booking.starting_date)).to_f %>
                 <% price = elapsed_seconds * (booking.offering.price_hour.to_f).to_f / 3600 %>
-                <p><%= price.round(2)  %></p>
-                <%= link_to "delete", booking_path(booking), method: :delete, data: {confirm: 'are you sure?'}, class: "btn-red" %>
+                <p><strong> <%= price.round(2) %>€/h</strong></p>
+
             </div>
             <div id="bouton-delete-edit-bookings">
               <%= link_to "delete", booking_path(offering, booking), method: :delete, data: {confirm: 'are you sure?'}, class: "btn-green" %>
@@ -34,4 +34,36 @@
     </div>
   <% end %>
   </div>
+
+  <h3>My offerings</h3>
+  <div class="container-large-card">
+
+    <% @offerings.each do |offering| %>
+
+
+    <div class="large-card">
+      <div class="img-large-card">
+        <% if offering.picture.blank? %>
+          <%= cl_image_tag ("default_nbt8iz"), alt: "default picture"%>
+        <% else %>
+          <%= cl_image_tag offering.picture, alt: "user picture" %>
+        <% end %>
+      </div>
+        <div class="card-trip-content">
+
+          <div class="card-trip-description">
+          <h4><%= link_to offering.name, offering_path(offering) %></h4>
+          <p><%= offering.genre %></p>
+          </div>
+
+          <div class="card-trip-price">
+           <h4><%= offering.price_hour %>€</h4>
+          </div>
+
+        </div>
+      </div>
+
+    <% end %>
+  </div>
 </div>
+
