@@ -30,15 +30,19 @@ class BookingsController < ApplicationController
   end
 
   def destroy
+    @booking = Booking.find(params[:format])
+    authorize @booking
+    @booking.destroy
+    redirect_to gigs_bookings_path
   end
 
   def gigs
     @offerings = Offering.where(user_id: current_user)
     @bookings = Booking.joins(:offering).where(user_id: current_user.id)
-
   end
 
   private
+
 
   def bookings_params
     params.require(:booking).permit(:starting_date, :end_date, :offering_id)
