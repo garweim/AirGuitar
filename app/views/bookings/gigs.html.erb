@@ -6,8 +6,11 @@
       <% offering.bookings.each do |booking| %>
         <div class="large-card">
           <div class="img-large-card">
+            <% if offering.picture.blank? %>
+              <%= cl_image_tag "default_nbt8iz.jpg", alt: "user picture" %>
+            <% else %>
             <%= cl_image_tag offering.picture, alt: "user picture" %>
-
+              <% end %>
           </div>
           <div class="card-trip-content">
             <div class="card-trip-description">
