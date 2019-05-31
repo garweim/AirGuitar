@@ -1,0 +1,23 @@
+.btn-red {
+    width: 10rem;
+    height: 2.5rem;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 10px;
+    margin-right: 10px;
+    background-color: #FF4D4A;
+    border-radius: 7px;
+    color: white;
+    text-decoration: none;
+    box-shadow: 2px 2px 2px #7B7676;
+}
+
+.btn-red:hover {
+  background-color: #D1322E;
+  text-decoration: none;
+  color: white;
+}
+
+#bouton-delete-edit {
+  margin-bottom: 20px;
+}

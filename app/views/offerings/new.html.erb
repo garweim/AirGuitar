@@ -1,23 +1,25 @@
+<div class='container-offer-performance'>
+  <div class="container">
+    <h3 id="sign-upp">Offer a Performance</h3>
 
-<h1>New offering</h1>
+    <%= simple_form_for(@offering) do |f| %>
+      <div class="form-card">
+        <div class="form-inputs">
+          <%= f.input :name %>
+          <%= f.input :price_hour, label: 'Price per hour (€)'%>
+          <%= f.input :genre, collection: ["jazz", "rock", "rap", "country", "blues", "disco"] %>
+          <%= f.input :description %>
+          <%= f.input :picture %>
+          <%= f.input :picture_cache, as: :hidden %>
 
 
-<%= simple_form_for(@offering) do |f| %>
+        </div>
 
-  <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :price_hour, label: 'Price per hour (€)'%>
-    <%= f.input :genre %>
-    <%= f.input :description %>
-    <%= f.input :picture %>
-
-    <%= f.input :picture_cache, as: :hidden %>
-
-
+        <div class="form-actions">
+           <%= f.submit "add an offering", class: "btn-red" %>
+        </div>
+      </div>
+    <% end %>
   </div>
-
-  <div class="form-actions">
-     <%= f.submit "add an offering", class: "btn btn-primary" %>
-  </div>
-<% end %>
+</div>
 
