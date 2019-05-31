@@ -31,15 +31,15 @@
   <% if policy(@offering).destroy? %>
 
   <div id="bouton-delete-edit">
+
     <%= link_to "delete", offering_path(@offering), method: :delete, data: {confirm: 'are you sure?'}, class: "btn-red" %> <%end  %>
 
     <%= link_to "edit offering",  edit_offering_path(@offering), class: "btn-red" %>
   </div>
 
   <div class="form-card">
-    <%= simple_form_for(@booking) do |f| %>
+    <%= simple_form_for([@offering, @booking]) do |f| %>
       <div class="form-inputs">
-        <%= f.hidden_field :offering, value: @offering.id %>
         <%= f.input :starting_date, as: :datetime, html5: true %>
         <%= f.input :end_date, as: :datetime, html5: true %>
       </div>

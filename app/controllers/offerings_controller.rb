@@ -34,7 +34,6 @@ class OfferingsController < ApplicationController
 
   def show
     @booking = Booking.new
-
      # @offering = Offering.find(params[:id])
   end
 
@@ -42,6 +41,7 @@ class OfferingsController < ApplicationController
   end
 
   def update
+    authorize @offering
     if @offering.update(offerings_params)
       redirect_to offering_path(@offering)
     else
@@ -50,6 +50,7 @@ class OfferingsController < ApplicationController
   end
 
   def destroy
+    authorize @offering
     @offering = Offering.find(params[:id])
     @offering.destroy
     redirect_to root_path
@@ -61,6 +62,10 @@ class OfferingsController < ApplicationController
     params.require(:offering).permit(:name, :price_hour, :genre, :picture, :description)
 
   end
+
+  # def authorize_offering
+  #   authorize @offering
+  # end
 
   def find_id
     @offering = Offering.find(params[:id])
