@@ -9,13 +9,11 @@
           </div>
           <div class="card-trip-content">
             <div class="card-trip-description">
-              <p><%= booking.starting_date %></p>
-              <p><%= booking.end_date %></p>
+               <p> <strong>Booked by</strong> <%= booking.user.first_name%> <%= booking.user.last_name%></p>
+               <p> <strong>From</strong> <%= booking.starting_date %></p>
+              <p> <strong>Until</strong> <%= booking.end_date %></p>
             </div>
-            <div class="card-trip-price">
-            <p><%= booking.user.first_name %></p>
-            <p><%= booking.user.last_name %></p>
-            </div>
+
           </div>
         </div>
       <br>
