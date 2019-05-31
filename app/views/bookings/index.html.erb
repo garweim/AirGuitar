@@ -12,6 +12,10 @@
                 <h4>You booked <%= booking.offering.name %></h4>
                 <p><strong>From </strong> <%= booking.starting_date %></p>
                 <p><strong>Until</strong> <%= booking.end_date %></p>
+                 <%  booking.offering.price_hour.to_i  %>
+                  <% elapsed_seconds = ((booking.end_date - booking.starting_date)).to_f %>
+                  <% price = elapsed_seconds * (booking.offering.price_hour.to_f).to_f / 3600 %>
+                <p><%= price.round(2) %></p>
               </div>
             </div>
           </div>
@@ -20,4 +24,3 @@
       </div>
     </div>
 </div>
-

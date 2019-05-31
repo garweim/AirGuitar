@@ -21,15 +21,17 @@
         </div>
       </div>
 
-      <% if policy(@offering).destroy? %>
 
 
       <div id="bouton-delete-edit">
+      <% if policy(@offering).destroy? %>
 
-      <%= link_to "delete", offering_path(@offering), method: :delete, data: {confirm: 'are you sure?'}, class: "btn-red" %> <%end  %>
+        <%= link_to "delete", offering_path(@offering), method: :delete, data: {confirm: 'are you sure?'}, class: "btn-red" %>
+      <% end %>
+      <% if policy(@offering).edit? %>
+        <%= link_to "edit offering",  edit_offering_path(@offering), class: "btn-red" %>
+      <% end %>
 
-
-      <%= link_to "edit offering",  edit_offering_path(@offering), class: "btn-red" %>
       </div>
     </div>
 
@@ -43,6 +45,6 @@
         <div class="form-actions">
            <%= f.submit "Book", class: "btn-red" %>
         </div>
-      <% end %>
+    <% end %>
   </div>
 </div>
