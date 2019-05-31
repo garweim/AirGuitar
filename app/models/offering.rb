@@ -18,4 +18,5 @@ class Offering < ApplicationRecord
   has_many :bookings, dependent: :destroy
   has_many :reviews, dependent: :destroy
   mount_uploader :picture, PhotoUploader
+  validates :name, :price_hour, presence: true
 end
