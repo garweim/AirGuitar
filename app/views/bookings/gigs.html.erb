@@ -1,37 +1,32 @@
-<% @offerings.each do |offering| %>
-  <h2> Offering: <%= offering.name %> </h2>
-  <% offering.bookings.each do |booking| %>
-    <%= booking.starting_date %>
-    <%= booking.end_date %>
-    <%= booking.user.first_name %>
-    <%= booking.user.last_name %>
-    <% booking.offering.price_hour.to_i  %>
-    <% elapsed_seconds = ((booking.end_date - booking.starting_date)).to_f %>
-    <br>
-    <%=  elapsed_seconds * (booking.offering.price_hour.to_f).to_f / 3600 %>
-    <br>
-<% end %>
-  <br>
-  <!-- if current_user == booking.user  -->
-  <% end  %>
-<% end %>
 
-    <% @offerings.each do |offering| %>
+<div class="container-landing">
+  <% @offerings.each do |offering| %>
+    <h3> My bookings </h3>
+    <div class="container-large-card">
+      <% offering.bookings.each do |booking| %>
+        <div class="large-card">
+          <div class="img-large-card">
+            <%= cl_image_tag offering.picture, alt: "user picture" %>
 
-      <div class="large-card">
-        <div class="img-large-card">
-        <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" alt="Paysage">
-        </div>
-        <div class="card-trip-content">
-          <div class="card-trip-description">
-          <h4><%= link_to offering.name, offering_path(offering) %></h4>
-          <p><%= offering.genre %></p>
           </div>
-          <div class="card-trip-price">
-           <h4><%= offering.price_hour %></h4>
+          <div class="card-trip-content">
+            <div class="card-trip-description">
+               <p> <strong>Booked by</strong> <%= booking.user.first_name%> <%= booking.user.last_name%></p>
+               <p> <strong>From</strong> <%= booking.starting_date %></p>
+              <p> <strong>Until</strong> <%= booking.end_date %></p>
+              <% booking.offering.price_hour.to_i  %>
+                <% elapsed_seconds = ((booking.end_date - booking.starting_date)).to_f %>
+                <% price = elapsed_seconds * (booking.offering.price_hour.to_f).to_f / 3600 %>
+              <p><%= price.round(2)  %></p>
+            </div>
+
           </div>
-
         </div>
-      </div>
+      <br>
+      <!-- if current_user == booking.user -->
+      <% end  %>
+    </div>
+  <% end %>
+  </div>
+</div>
 
-    <% end %>
