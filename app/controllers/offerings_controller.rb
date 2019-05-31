@@ -4,7 +4,12 @@ class OfferingsController < ApplicationController
   def index
     # @offerings = Offering.all
     if params[:query].present?
-      @offerings = Offering.where("@@ ?", "%#{params[:query]}")
+      # sql_query = " \
+      #   offerings.name @@ :query \
+      #   OR offerings.genre @@ :query \
+      # "
+      # @offerings = Offering.where(sql_query, query: "%#{params[:query]}%")
+      @offerings = policy_scope(Offering.search_by_genre_and_name("%#{params[:query]}%"))
     else
       @offerings = policy_scope(Offering)
       @offering = Offering.all

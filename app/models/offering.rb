@@ -3,7 +3,7 @@ class Offering < ApplicationRecord
   pg_search_scope :search_by_genre_and_name,
     against: [:genre, :name, :description],
     using: {
-    tsearch: { prefix: true }
+      tsearch: { prefix: true }
     }
   #   include PgSearch
   # pg_search_scope :global_search,
