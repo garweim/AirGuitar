@@ -6,6 +6,8 @@ h1 {
 h2 {
   font-size: 36px;
   font-weight: bold;
+  // text-shadow: 1px 1px 1px #FF4D4A;
+  font-family: 'Roboto', sans-serif;
   text-shadow: 1px 1px 1px #FF4D4A;
 }
 
@@ -13,10 +15,16 @@ h3 {
   font-size: 24px;
   font-weight: bold;
   color: black;
+  font-family: 'Roboto', sans-serif;
 }
 
 h4 {
   font-size: 18px;
   font-weight: bold;
   color: #7B7676;
+  font-family: 'Roboto', sans-serif;
+}
+
+p {
+  font-family: 'Open Sans', sans-serif;
 }
