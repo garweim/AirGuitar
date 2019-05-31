@@ -21,18 +21,26 @@ class BookingsController < ApplicationController
     end
   end
 
-  def show
-  end
 
   def edit
+    @booking = Booking.find(params[:id])
+  end
+
+  def update
+    @booking = Booking.find(params[:id])
+    @booking.update(bookings_params)
   end
 
   def destroy
+    @booking = Booking.find(params[:id])
+    authorize @booking
+    @booking.destroy
+    redirect_to bookings_path
   end
 
   def gigs
     @offerings = Offering.where(user_id: current_user)
-    # @bookings = Booking.joins(:offering).where(user_id: current_user.id)
+    #@bookings = Booking.joins(:offering).where(user_id: current_user.id)
     authorize @offerings
   end
 

@@ -14,7 +14,7 @@
         </div>
       </form> -->
 
-      <%= form_tag(offerings_path, {class: "search", method: :get})do %>
+      <%= form_tag(root_path, {class: "search", method: :get})do %>
         <%= text_field_tag :query,
           params[:query],
           class: "form-control string required",

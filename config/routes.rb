@@ -3,18 +3,16 @@ Rails.application.routes.draw do
   root to: 'offerings#index'
   devise_for :users
 
-  # resources :offerings, only: [ :new, :edit, :show, :create, :destroy ]
-  resources :offerings do
+  resources :offerings, only: [ :new, :edit, :show, :create, :destroy ] do
     resources :bookings, only: [:create, :edit, :update]
   end
-  resources :bookings, only: [:index, :destroy ]
-  resources :bookings do
+  resources :bookings, only: [:index, :destroy ] do
     collection do
       get 'gigs'
     end
   end
 
-  resources :offerings
+
   # resources :offerings do
   # end
   #resources :bookings
