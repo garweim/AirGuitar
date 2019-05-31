@@ -42,9 +42,11 @@ class BookingsController < ApplicationController
     @offerings = Offering.where(user_id: current_user)
     #@bookings = Booking.joins(:offering).where(user_id: current_user.id)
     authorize @offerings
+
   end
 
   private
+
 
   def bookings_params
     params.require(:booking).permit(:starting_date, :end_date, :offering_id)

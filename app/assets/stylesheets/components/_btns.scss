@@ -12,8 +12,36 @@
     box-shadow: 2px 2px 2px #7B7676;
 }
 
+.btn-green {
+    width: 10rem;
+    height: 1rem;
+    font-size: 10px;
+    padding: 6px;
+    margin-right: 3px;
+    background-color: #FF4D4A;
+    border-radius: 4px;
+    color: white;
+    text-decoration: none;
+    box-shadow: 1px 1px 1px #7B7676;
+}
+
 .btn-red:hover {
   background-color: #D1322E;
+  text-decoration: none;
+  color: white;
+}
+
+#bouton-delete-edit-bookings {
+  margin: 0rem 0rem 1rem 1rem;
+}
+
+.btn-green {
+  background-color: #D1322E;
+  text-decoration: none;
+  color: white;
+}
+
+.btn-green a {
   text-decoration: none;
   color: white;
 }
