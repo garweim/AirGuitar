@@ -1,6 +1,6 @@
 <div class="container-landing">
   <% @offerings.each do |offering| %>
-    <h3> My bookings </h3>
+    <h3> Artist: <%= offering.name %> </h3>
     <div class="container-large-card">
       <% offering.bookings.each do |booking| %>
         <div class="large-card">
@@ -13,14 +13,15 @@
                <p> <strong>From</strong> <%= booking.starting_date %></p>
               <p> <strong>Until</strong> <%= booking.end_date %></p>
             </div>
-
+            <div id="bouton-delete-edit-bookings">
+              <%= link_to "delete", booking_path(offering, booking), method: :delete, data: {confirm: 'are you sure?'}, class: "btn-green" %>
+              <%= link_to "edit offering",  edit_offering_booking_path(offering, booking), class: "btn-green" %>
+            </div>
           </div>
         </div>
-      <br>
       <!-- if current_user == booking.user -->
       <% end  %>
     </div>
   <% end %>
   </div>
 </div>
-
