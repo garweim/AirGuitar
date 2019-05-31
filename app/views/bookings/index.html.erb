@@ -5,8 +5,10 @@
 <% @bookings.each do |booking| %>
   <%= booking.starting_date %>
   <%= booking.end_date %>
+  <%= booking.offering.name %>
+
 <% end %>
 
-<!-- # <% #if current_user == booking.user %>
-#   <%= link_to #{}"Edit", edit_offering_booking_path(@offering, booking) %>
-#     <% #end%> -->
+<%# if current_user == booking.user %>
+<%# link_to #{}"Edit", edit_offering_booking_path(@offering, booking) %>
+<%# end%>

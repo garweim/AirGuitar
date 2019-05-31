@@ -3,6 +3,7 @@ class BookingsController < ApplicationController
     # @offering = Offering.find(params[:offering_id])
     @bookings = Booking.where(user_id: current_user.id)
 
+
     # if @bookings.is_nil?
 
     # else
@@ -32,7 +33,9 @@ class BookingsController < ApplicationController
   end
 
   def gigs
+    @offerings = Offering.where(user_id: current_user)
     @bookings = Booking.joins(:offering).where(user_id: current_user.id)
+
   end
 
   private
